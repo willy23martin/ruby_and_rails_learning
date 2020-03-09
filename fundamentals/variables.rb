@@ -1,0 +1,5 @@
+=begin
+VARIABLES
+Types:
+- 
+=end
