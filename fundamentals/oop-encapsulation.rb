@@ -17,6 +17,32 @@ class Conversation
 end
 
 conversation = Conversation.new("1102", "operation2", "Conversation details")
-puts conversation.content # Not defined
 puts conversation.queue # operation2
 puts conversation.conversation_id # 1102
+# puts conversation.content # Not defined
+
+#attr_writer: allows environment to only write the object properties:
+class Properties
+  attr_writer :words
+  def initialize(words)
+    @words = words
+  end
+end
+properties = Properties.new("The class properties to be persisted")
+puts properties.words = "New words" # Can write
+# puts properties.words # Cannot read
+
+#attr_accesor: allows environment both to write and to read the object properties:
+class CustomFile
+  attr_accessor :name, :content
+  def initialize(name, content)
+    @name = name
+    @content = content
+  end
+end
+custom_file = CustomFile.new("fileOne", "This is the file one")
+puts custom_file.name
+puts custom_file.content
+puts custom_file.name = "fileOtherOne"
+puts custom_file.content = "Modifying the file"
+
